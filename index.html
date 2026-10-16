@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>早观清 · 畜禽早期观察清单 · 王婧涵</title>
+<meta name="description" content="家庭猪场/蛋鸡场：一页人话观察清单 + 饲养与异常记录。非诊疗、不开药、不替代兽医、不卖传感器。"/>
+<style>
+:root{
+  --ink:#1c2b22; --muted:#5a6b60; --line:#d7e2da; --bg:#f3f7f4; --card:#fff;
+  --accent:#1f6b45; --accent-2:#b85c1a; --soft:#e7f3ec; --danger:#8c2f1b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); line-height:1.6;
+  font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:
+    radial-gradient(900px 420px at 8% -8%, #d7ebe0 0%, transparent 58%),
+    radial-gradient(700px 360px at 100% 0%, #f6e4cf 0%, transparent 52%),
+    var(--bg);
+}
+a{color:var(--accent)}
+.top{
+  position:sticky; top:0; z-index:10; background:rgba(243,247,244,.9);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+}
+.top-in{max-width:860px; margin:0 auto; padding:10px 16px; display:flex; justify-content:space-between; gap:10px; align-items:center; flex-wrap:wrap}
+.brand{font-weight:800; letter-spacing:.04em}
+.nav{display:flex; gap:6px; flex-wrap:wrap}
+.nav a{text-decoration:none; color:var(--ink); font-size:13px; padding:6px 10px; border-radius:999px}
+.nav a:hover{background:#fff; border:1px solid var(--line)}
+.wrap{max-width:860px; margin:0 auto; padding:18px 16px 56px}
+.hero{padding:22px 0 6px}
+.kicker{display:inline-block; font-size:12px; font-weight:700; color:var(--accent); background:var(--soft); border:1px solid #c5ddd0; border-radius:999px; padding:4px 10px; margin-bottom:10px}
+h1{margin:0 0 10px; font-size:clamp(28px,5vw,42px); line-height:1.2; letter-spacing:-.02em}
+.lead{color:var(--muted); font-size:17px; max-width:40em; margin:0 0 14px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px}
+.chip{font-size:12px; background:#fff; border:1px solid var(--line); border-radius:999px; padding:4px 10px; color:var(--muted)}
+.cta{display:flex; flex-wrap:wrap; gap:10px}
+.btn{appearance:none; border:0; cursor:pointer; font:inherit; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:12px}
+.btn-p{background:var(--accent); color:#fff}
+.btn-g{background:#fff; color:var(--ink); border:1px solid var(--line)}
+.btn-block{width:100%}
+.redline{
+  margin:16px 0; padding:14px 16px; border-radius:14px;
+  background:#fff4ef; border:1px solid #f0c2b4; border-left:6px solid var(--danger);
+}
+.redline h2{margin:0 0 6px; font-size:16px; color:var(--danger)}
+.redline ul{margin:6px 0 0; padding-left:1.15em}
+.grid{display:grid; gap:12px}
+@media(min-width:760px){.g2{grid-template-columns:1.15fr .85fr} .g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; box-shadow:0 8px 24px rgba(28,43,34,.05)}
+.card h2{margin:0 0 8px; font-size:18px}
+.card p{margin:0 0 8px; color:var(--muted)}
+.q{margin:0 0 10px; padding:10px 12px; background:#f7faf8; border-left:3px solid var(--accent-2); border-radius:0 10px 10px 0}
+.q cite{display:block; margin-top:4px; font-style:normal; font-size:12px; color:var(--muted)}
+.steps{list-style:none; margin:0; padding:0; counter-reset:s}
+.steps li{position:relative; padding:10px 10px 10px 46px; border:1px solid var(--line); border-radius:12px; margin-bottom:8px; background:#fbfdfc}
+.steps li::before{counter-increment:s; content:counter(s); position:absolute; left:10px; top:10px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center}
+label.ck{display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border:1px solid var(--line); border-radius:12px; margin:0 0 8px; background:#fbfdfc; cursor:pointer}
+label.ck input{margin-top:3px; width:18px; height:18px; accent-color:var(--accent)}
+.field{margin:0 0 10px}
+.field>span{display:block; font-size:13px; font-weight:700; margin-bottom:4px}
+.field input,.field select,.field textarea{width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:10px; font:inherit; background:#fff}
+.field textarea{min-height:70px; resize:vertical}
+.row2{display:grid; gap:10px}
+@media(min-width:560px){.row2{grid-template-columns:1fr 1fr}}
+.bar{height:8px; background:#e4eee8; border-radius:999px; overflow:hidden; margin:6px 0 8px}
+.bar>i{display:block; height:100%; width:0; background:linear-gradient(90deg,#3d9a6a,var(--accent))}
+.msg{min-height:1.3em; font-weight:700}
+.ok{color:var(--accent)}
+.err{color:var(--danger)}
+.item{border:1px dashed var(--line); border-radius:10px; padding:8px 10px; margin-bottom:8px; font-size:13px; background:#fbfdfc}
+.item b{display:block}
+.sec{margin-top:16px}
+footer{margin-top:22px; padding-top:12px; border-top:1px solid var(--line); color:var(--muted); font-size:12px}
+code{background:#fff; border:1px solid var(--line); border-radius:6px; padding:1px 6px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="brand">早观清</div>
+    <nav class="nav">
+      <a href="#obs">今日观察</a>
+      <a href="#log">异常记录</a>
+      <a href="#book">预约试填</a>
+      <a href="#hist">本机记录</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div class="kicker">沈阳农业大学 · 动物科学 · 课程 MVP</div>
+    <h1>早看清，少耽误送医</h1>
+    <p class="lead">给<strong>家庭猪场 / 蛋鸡场</strong>主责人和协助记账的家属：一页人话观察清单，加上一张饲养与异常记录。先知道今天看什么、哪天开始不对；碰到红线就联系当地兽医。</p>
+    <div class="chips">
+      <span class="chip">王婧涵 · 2024109009</span>
+      <span class="chip">畜禽早期观察清单·轻台账</span>
+      <span class="chip">非诊疗 · 不开药</span>
+    </div>
+    <div class="cta">
+      <a class="btn btn-p" href="#obs">开始今日观察</a>
+      <a class="btn btn-g" href="#log">记一笔异常</a>
+    </div>
+  </section>
+
+  <section class="redline" id="red">
+    <h2>红线：出现这些，停止自行猜病，联系兽医</h2>
+    <ul>
+      <li>持续不吃料、精神明显沉郁或嗜卧，超过你平时能接受的观察窗口。</li>
+      <li>呼吸加快、张口、咳嗽，或体温明显异常且已记下数字。</li>
+      <li>粪便带血、水样腹泻成窝发生，或产蛋连续下滑又说不清从哪天开始。</li>
+    </ul>
+    <p style="margin:8px 0 0">本页<strong>不诊断、不开药、不替代执业兽医</strong>，也不卖传感器、不推智慧养殖整套系统。</p>
+  </section>
+
+  <section class="sec grid g2">
+    <article class="card">
+      <h2>第3周访谈里的原话</h2>
+      <blockquote class="q">「猪没精神先看采食，不行就问邻居，真不行再找兽医。」<cite>FT-01 · 家乡家庭猪场 · 约80头</cite></blockquote>
+      <blockquote class="q">「本子有时写有时忘，回头想不起来哪天开始不好。」<cite>FT-01 · 谈记录</cite></blockquote>
+      <blockquote class="q">「产蛋掉了先看料和水，再看鸡棚温度。」<cite>FT-02 · 邻村蛋鸡散养 · 约1500羽</cite></blockquote>
+      <blockquote class="q">「兽医说来晚了，我也不知中间该记啥。」<cite>FT-03 · 家庭猪场家属</cite></blockquote>
+      <blockquote class="q">「人话版红线提醒有用，别一堆拉丁名。」<cite>FT-03 · 谈期望</cite></blockquote>
+      <p style="font-size:12px">以上为课程访谈摘录，不是广告。对方明确拒绝网上开药，也拒绝一上来买系统或装传感器。</p>
+    </article>
+    <article class="card">
+      <h2>三步</h2>
+      <ol class="steps">
+        <li>每天勾「今日观察」：精神、采食、粪便、呼吸、体温，以及红线自检。</li>
+        <li>有异常就填「饲养与异常记录」：哪天、哪栏、料和水、你做了什么、有没有联系兽医。</li>
+        <li>把本机记录给兽医或下一班的人看。不要在本页求药方。</li>
+      </ol>
+      <p>付费口径对齐访谈：先免费试用两周；按月几元到十几元可以再谈；开药和硬件不在这个产品里。</p>
+    </article>
+  </section>
+
+  <section class="sec card" id="obs">
+    <h2>今日观察清单</h2>
+    <p>目标不超过一页。五项都看过才能保存。</p>
+    <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    <p id="barText" style="margin:0 0 10px;font-size:13px;color:var(--muted)">已勾 0 / 6</p>
+    <form id="obsForm">
+      <label class="ck"><input type="checkbox" name="spirit"/> 精神：活泼 / 沉郁 / 嗜卧（看过并心里有数）</label>
+      <label class="ck"><input type="checkbox" name="feed"/> 采食：正常 / 下降 / 基本不吃</label>
+      <label class="ck"><input type="checkbox" name="dung"/> 粪便：成形 / 偏稀 / 带血或颜色明显不对</label>
+      <label class="ck"><input type="checkbox" name="breath"/> 呼吸：平稳 / 加快 / 张口或咳嗽</label>
+      <label class="ck"><input type="checkbox" name="temp"/> 体温：未测已标明 / 已测并记下数字（写在异常记录里）</label>
+      <label class="ck"><input type="checkbox" name="red"/> 红线自检：若持续不食、呼吸困难或成窝腹泻，今天联系兽医，不在这里开药</label>
+      <div class="row2">
+        <label class="field"><span>谁在看</span><input name="who" placeholder="场主 / 家属"/></label>
+        <label class="field"><span>哪一栏 / 哪栋</span><input name="pen" placeholder="例如：育肥2栏 / 蛋鸡1号棚"/></label>
+      </div>
+      <button class="btn btn-p btn-block" type="submit">保存今日观察到本机</button>
+      <p class="msg" id="obsMsg"></p>
+    </form>
+  </section>
+
+  <section class="sec card" id="log">
+    <h2>饲养与异常记录</h2>
+    <p>给换班和兽医用。只记事实，不写药方、不写剂量。</p>
+    <form id="logForm">
+      <div class="row2">
+        <label class="field"><span>日期时间</span><input type="datetime-local" name="when" required/></label>
+        <label class="field"><span>对象</span>
+          <select name="kind" required>
+            <option value="">请选择</option>
+            <option>育肥猪</option>
+            <option>仔猪</option>
+            <option>母猪</option>
+            <option>蛋鸡</option>
+            <option>其他</option>
+          </select>
+        </label>
+      </div>
+      <div class="row2">
+        <label class="field"><span>料和水</span>
+          <select name="feedwater" required>
+            <option value="">请选择</option>
+            <option>料水都正常</option>
+            <option>采食下降，水正常</option>
+            <option>料水都差</option>
+            <option>产蛋下降，先看了料和水</option>
+            <option>当时没看清</option>
+          </select>
+        </label>
+        <label class="field"><span>有没有联系兽医</span>
+          <select name="vet" required>
+            <option value="">请选择</option>
+            <option>还在观察，未到红线</option>
+            <option>已联系，等待上门</option>
+            <option>已请兽医看过</option>
+            <option>红线已出现，尚未联系（请马上联系）</option>
+          </select>
+        </label>
+      </div>
+      <label class="field"><span>一句话经过（给人话，别写拉丁病名）</span>
+        <textarea name="note" placeholder="例如：10日采食开始少，11日仍少，12日请兽医。中间没记体温。"></textarea>
+      </label>
+      <button class="btn btn-p btn-block" type="submit">保存这条记录到本机</button>
+      <p class="msg" id="logMsg"></p>
+    </form>
+  </section>
+
+  <section class="sec card" id="book">
+    <h2>预约两周试填</h2>
+    <p>免费试用两周。留下手机后，学生本人用微信或电话说明怎么填——不推销传感器，不提供开药。</p>
+    <form id="bookForm">
+      <div class="row2">
+        <label class="field"><span>怎么称呼</span><input name="name" required placeholder="王场长 / 小李"/></label>
+        <label class="field"><span>手机号</span><input name="phone" required inputmode="numeric" pattern="1[3-9]\d{9}" placeholder="11位"/></label>
+      </div>
+      <label class="field"><span>场型</span>
+        <select name="site" required>
+          <option value="">请选择</option>
+          <option>家庭猪场</option>
+          <option>蛋鸡场</option>
+          <option>两者都有</option>
+        </select>
+      </label>
+      <label class="field"><span>最想先解决的一件事</span>
+        <textarea name="wish" placeholder="例如：换班说不清；不知何时必须找兽医"></textarea>
+      </label>
+      <button class="btn btn-p btn-block" type="submit">预约试填（仅存本机）</button>
+      <p class="msg" id="bookMsg"></p>
+      <p style="font-size:12px;color:var(--muted)">课程联系人：王婧涵 · 15140280366 · 沈阳农业大学动物科学与医学学院</p>
+    </form>
+  </section>
+
+  <section class="sec card" id="hist">
+    <h2>本机最近记录</h2>
+    <p>同一浏览器刷新还在。可给兽医看屏幕，也可清空。</p>
+    <div id="list"></div>
+    <button class="btn btn-g" type="button" id="clear">清空本机记录</button>
+  </section>
+
+  <footer>
+    <p>王婧涵（学号 2024109009）· 畜禽早期观察清单·轻台账 · 路径B落地页</p>
+    <p>公网：<code>https://hjw-create.github.io/wangjh-zaoguan-mvp/</code> · 仓库保留则链接长期有效，关机不影响打开。</p>
+    <p>数据只存在你的浏览器，不上传服务器，也不能当作诊断依据。</p>
+  </footer>
+</main>
+<script>
+(function () {
+  var KEY = "wangjh_zaoguan_v1";
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { return []; } }
+  function save(list) { localStorage.setItem(KEY, JSON.stringify(list.slice(0, 40))); render(); }
+  function stamp() {
+    var d = new Date(), p = function (n) { return n < 10 ? "0" + n : "" + n; };
+    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + " " + p(d.getHours()) + ":" + p(d.getMinutes());
+  }
+  function render() {
+    var list = load(), box = document.getElementById("list");
+    if (!list.length) { box.innerHTML = "<p style='color:var(--muted);font-size:13px'>还没有记录。</p>"; return; }
+    box.innerHTML = list.map(function (r) { return "<div class='item'><b>" + r.type + " · " + r.at + "</b>" + r.summary + "</div>"; }).join("");
+  }
+  function bar() {
+    var boxes = document.querySelectorAll("#obsForm input[type=checkbox]");
+    var n = 0; boxes.forEach(function (b) { if (b.checked) n++; });
+    document.getElementById("bar").style.width = (n / boxes.length * 100) + "%";
+    document.getElementById("barText").textContent = "已勾 " + n + " / " + boxes.length;
+  }
+  document.querySelectorAll("#obsForm input[type=checkbox]").forEach(function (b) { b.addEventListener("change", bar); });
+  bar();
+  document.getElementById("obsForm").onsubmit = function (e) {
+    e.preventDefault();
+    var fd = new FormData(e.target);
+    var keys = ["spirit", "feed", "dung", "breath", "temp", "red"];
+    var n = keys.filter(function (k) { return fd.get(k); }).length;
+    var msg = document.getElementById("obsMsg");
+    if (n < 6) { msg.className = "msg err"; msg.textContent = "请把六项都看过再保存，尤其是红线自检。"; return; }
+    var list = load();
+    list.unshift({ type: "观察", at: stamp(), summary: "观察人：" + (fd.get("who") || "未填") + "；栏舍：" + (fd.get("pen") || "未填") + "；六项已勾，含红线自检。" });
+    save(list);
+    msg.className = "msg ok";
+    msg.textContent = "已保存在本机。若勾到红线情形，请马上联系兽医，不要在本页求药。";
+  };
+  document.getElementById("logForm").onsubmit = function (e) {
+    e.preventDefault();
+    var fd = new FormData(e.target);
+    var list = load();
+    list.unshift({
+      type: "异常记录", at: stamp(),
+      summary: "时间：" + fd.get("when") + "；对象：" + fd.get("kind") + "；料水：" + fd.get("feedwater") + "；兽医：" + fd.get("vet") + "；经过：" + ((fd.get("note") || "无").toString().trim() || "无")
+    });
+    save(list);
+    var msg = document.getElementById("logMsg");
+    msg.className = "msg ok";
+    msg.textContent = "记录已保存。可把「本机最近记录」给兽医或下一班看。";
+  };
+  document.getElementById("bookForm").onsubmit = function (e) {
+    e.preventDefault();
+    var fd = new FormData(e.target);
+    var phone = (fd.get("phone") || "").toString();
+    var msg = document.getElementById("bookMsg");
+    if (!/^1[3-9]\d{9}$/.test(phone)) { msg.className = "msg err"; msg.textContent = "请填写11位手机号。"; return; }
+    var list = load();
+    list.unshift({ type: "预约试填", at: stamp(), summary: "称呼：" + fd.get("name") + "；手机：" + phone + "；场型：" + fd.get("site") + "；想解决：" + ((fd.get("wish") || "未写").toString().trim() || "未写") });
+    save(list);
+    msg.className = "msg ok";
+    msg.textContent = "预约草稿在本机。学生会电话或微信说明两周试填，不推销硬件、不开药。";
+    e.target.reset();
+  };
+  document.getElementById("clear").onclick = function () {
+    if (!confirm("清空本浏览器里的观察、异常和预约记录？")) return;
+    localStorage.removeItem(KEY); render();
+  };
+  render();
+})();
+</script>
+</body>
+</html>
